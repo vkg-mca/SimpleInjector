@@ -6,6 +6,6 @@ namespace SimpleInjectorSample
 {
     public interface ILogger
     {
-        void Log(IEmployee employee);
+        void Log<T>(T obj);
     }
 }

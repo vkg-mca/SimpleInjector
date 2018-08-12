@@ -8,7 +8,7 @@ namespace SimpleInjectorSample
         {
             container.RegisterSingleton<IEmployeeProcessor, EmployeeProcessor>();
             container.RegisterSingleton<IEmployee>(() => new Employee(0, "raw"));
-            container.RegisterSingleton<ILogger, Logger>();
+            container.RegisterSingleton<ILogger, ConsoleLogger>();
         }
 
     }
