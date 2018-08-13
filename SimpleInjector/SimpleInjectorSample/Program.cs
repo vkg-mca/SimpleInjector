@@ -9,7 +9,7 @@ namespace SimpleInjectorSample
             DiContainer.Register(ObjectFactory.Container);
             ILogger logger = ObjectFactory.CreateLogger();
             IEmployeeProcessor employeeProcessor = ObjectFactory.CreateEmployeeProcessor();
-            IEmployee initial = ObjectFactory.Container.GetInstance<IEmployee>();
+            IEmployee initial = ObjectFactory.GetEmployeeInstance();
             logger.Log(initial);
             IEmployee updated = employeeProcessor.UpdateEmployee(123, "Vinod");
             logger.Log(updated);

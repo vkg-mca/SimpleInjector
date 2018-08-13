@@ -18,5 +18,10 @@ namespace SimpleInjectorSample
             return logger;
         }
 
+        public static IEmployee GetEmployeeInstance()
+        {
+            return Container.GetInstance<IEmployee>();
+        }
+
     }
 }
