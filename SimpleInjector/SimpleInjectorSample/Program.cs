@@ -6,10 +6,12 @@ namespace SimpleInjectorSample
     {
         static void Main(string[] args)
         {
-            DiContainer.Register(ObjectFactory.Container);
-            ILogger logger = ObjectFactory.CreateLogger();
-            IEmployeeProcessor employeeProcessor = ObjectFactory.CreateEmployeeProcessor();
-            IEmployee initial = ObjectFactory.GetEmployeeInstance();
+
+            var container = ObjectFactory.GetContainer();
+            DiContainer.Register(container);
+            ILogger logger = ObjectFactory.GetInstance<ILogger>();
+            IEmployeeProcessor employeeProcessor = ObjectFactory.GetInstance<IEmployeeProcessor>();
+            IEmployee initial = ObjectFactory.GetInstance<IEmployee>();
             logger.Log(initial);
             IEmployee updated = employeeProcessor.UpdateEmployee(123, "Vinod");
             logger.Log(updated);

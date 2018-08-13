@@ -6,21 +6,15 @@ namespace SimpleInjectorSample
     public static class ObjectFactory
     {
         private static Container _container = new Container();
-        public static Container Container { get; private set; } = _container;
-        public static IEmployeeProcessor CreateEmployeeProcessor()
+
+        public static Container GetContainer()
         {
-            IEmployeeProcessor processor = Container.GetInstance<IEmployeeProcessor>();
-            return processor;
-        }
-        public static ILogger CreateLogger()
-        {
-            ILogger logger = Container.GetInstance<ILogger>();
-            return logger;
+            return _container;
         }
 
-        public static IEmployee GetEmployeeInstance()
+        public static T GetInstance<T>() where T : class
         {
-            return Container.GetInstance<IEmployee>();
+            return _container.GetInstance<T>();
         }
 
     }
